@@ -1,0 +1,7 @@
+DEBUG   2021-11-08 13:45:57,246 [main] devpinoyLogger  - Config file loaded
+DEBUG   2021-11-08 13:45:57,247 [main] devpinoyLogger  - ObjRepo file loaded
+DEBUG   2021-11-08 13:46:01,018 [main] devpinoyLogger  - Chrome Browser Launched
+DEBUG   2021-11-08 13:46:03,218 [main] devpinoyLogger  - Website opened
+DEBUG   2021-11-08 13:46:03,410 [main] devpinoyLogger  - Inside LoginTest
+DEBUG   2021-11-08 13:46:06,540 [main] devpinoyLogger  - LoginTest Successful
+DEBUG   2021-11-08 13:46:06,931 [main] devpinoyLogger  - Test Execution Completed
