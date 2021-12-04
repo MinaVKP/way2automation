@@ -13,6 +13,7 @@
 				<class name="org.w2a.testcases.BankManagerLoginTest" />
 				<class name="org.w2a.testcases.AddCustomerTest" />
 				<class name="org.w2a.bases.TestBaseClass" />
+				<class name="org.w2a.testcases.OpenAccountTest" />
 			</classes>
 		
 	</test> <!-- Test -->

@@ -1,5 +1,7 @@
 package org.w2a.testcases;
 
+
+
 //import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -10,18 +12,20 @@ import org.w2a.bases.TestBaseClass;
 public class BankManagerLoginTest extends TestBaseClass{
 		
 	@Test
-	public void bankManagerLogin() throws InterruptedException {
-
+	public void bankManagerLoginTest() throws Exception {
+		Thread.sleep(3000);
+		verifyEquals("abc","xyz");
 		
 		log.debug("Inside LoginTest");
-		driver.findElement(By.cssSelector(objrepo.getProperty("bnkmgrbtn"))).click();
+		click("bnkmgrbtn_CSS");
 		Thread.sleep(3000);
-		Assert.assertTrue(isElementPresent(By.cssSelector(objrepo.getProperty("addCustbtn"))));
+		Assert.assertTrue(isElementPresent(By.cssSelector(objrepo.getProperty("addCustbtn_CSS"))));
 		
 		log.debug("LoginTest Successful");
-		Assert.fail("login failed");
+		//Assert.fail("login failed");
 		
-	}
+	}   
+	
 
 }
 

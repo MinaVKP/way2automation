@@ -7,6 +7,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.w2a.bases.TestBaseClass;
 import org.w2a.utilities.TestUtil;
 
@@ -20,7 +21,13 @@ public class CustomListeners extends TestBaseClass implements ITestListener {
 	public void onTestStart(ITestResult result) {
 		
 		 test = report.startTest(result.getName().toUpperCase());
-		
+		 
+		 //run mode 
+		 if(!TestUtil.isTestRunnable(result.getName(), excel))
+		 {
+			 throw new SkipException("Skipping Exception " + result.getName().toUpperCase() + "as the runmode is NO");
+		 }
+		 
 		
 		
 	}
@@ -68,7 +75,9 @@ public class CustomListeners extends TestBaseClass implements ITestListener {
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
+		test.log(LogStatus.SKIP, result.getName().toUpperCase(), "Skipped with Exception as runmode is NO");
+		report.endTest(test);
+		report.flush();
 		
 	}
 

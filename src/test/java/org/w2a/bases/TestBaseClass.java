@@ -7,10 +7,14 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.w2a.utilities.ExcelReader;
 import org.w2a.utilities.ExtentManager;
+import org.w2a.utilities.TestUtil;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
+import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -117,6 +121,38 @@ public void setUp()
 	}
 }
 
+public void click(String locator)
+{
+	if(locator.endsWith("_CSS"))
+	{
+		driver.findElement(By.cssSelector(objrepo.getProperty(locator))).click();
+	}
+	else if(locator.endsWith("_XPATH"))
+	{
+		driver.findElement(By.xpath(objrepo.getProperty(locator))).click();
+	}
+	else if(locator.endsWith("_ID"))
+	{
+		driver.findElement(By.id(objrepo.getProperty(locator))).click();
+	}
+	test.log(LogStatus.INFO,"Clicking on " + locator);
+}
+
+public void type(String locator,String value)
+{
+	if(locator.endsWith("_CSS")) {
+			driver.findElement(By.cssSelector(objrepo.getProperty(locator))).sendKeys(value);
+	}
+	else if(locator.endsWith("_XPATH")) {
+		driver.findElement(By.xpath(objrepo.getProperty(locator))).sendKeys(value);
+	}
+	else if(locator.endsWith("_ID")) {
+		driver.findElement(By.id(objrepo.getProperty(locator))).sendKeys(value);
+	}
+
+	test.log(LogStatus.INFO,"Typing in  " + locator + " and entered the value "+ value);
+}
+
 public boolean isElementPresent(By by)
 {
 	try
@@ -130,7 +166,29 @@ public boolean isElementPresent(By by)
 	
 }
 
-
+public static void verifyEquals(String actual, String expected) throws Exception
+{
+	try
+	{
+		Assert.assertEquals(actual, expected);
+	}catch (Throwable t) {
+		 
+		TestUtil.captureScreenshot();
+		//Reportng report
+		Reporter.log("<br>" + "Verification failure :"+t.getMessage()+"<br>");
+		Reporter.log("<a target=\"_blank\" href="+TestUtil.screenshotName+"><img src= "+TestUtil.screenshotName+" height = 200 width=200></img></a>");
+		Reporter.log("<br>");
+		
+		//Extent Report
+		test.log(LogStatus.FAIL,"Verification Failed with Exception"+t.getMessage());
+		test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
+		
+		
+		Reporter.log("<a target=\"_blank\" href="+TestUtil.screenshotName+">Screenshot</a>");
+		
+	}
+	
+}
 			
 @AfterSuite
 public void teardown()

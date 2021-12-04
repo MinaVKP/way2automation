@@ -1,7 +1,7 @@
-DEBUG   2021-11-08 13:45:57,246 [main] devpinoyLogger  - Config file loaded
-DEBUG   2021-11-08 13:45:57,247 [main] devpinoyLogger  - ObjRepo file loaded
-DEBUG   2021-11-08 13:46:01,018 [main] devpinoyLogger  - Chrome Browser Launched
-DEBUG   2021-11-08 13:46:03,218 [main] devpinoyLogger  - Website opened
-DEBUG   2021-11-08 13:46:03,410 [main] devpinoyLogger  - Inside LoginTest
-DEBUG   2021-11-08 13:46:06,540 [main] devpinoyLogger  - LoginTest Successful
-DEBUG   2021-11-08 13:46:06,931 [main] devpinoyLogger  - Test Execution Completed
+DEBUG   2021-12-04 14:20:30,384 [main] devpinoyLogger  - Config file loaded
+DEBUG   2021-12-04 14:20:30,386 [main] devpinoyLogger  - ObjRepo file loaded
+DEBUG   2021-12-04 14:20:40,284 [main] devpinoyLogger  - Chrome Browser Launched
+DEBUG   2021-12-04 14:20:42,519 [main] devpinoyLogger  - Website opened
+DEBUG   2021-12-04 14:20:45,977 [main] devpinoyLogger  - Inside LoginTest
+DEBUG   2021-12-04 14:20:49,076 [main] devpinoyLogger  - LoginTest Successful
+DEBUG   2021-12-04 14:21:00,382 [main] devpinoyLogger  - Test Execution Completed
